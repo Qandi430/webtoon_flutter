@@ -4,11 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:webtoon/models/webtoon_model.dart'; //namespace를 지정 http.get으로 사용하도록
 
 class ApiService {
-  final String baseUrl =
+  static const String baseUrl =
       "https://webtoon-crawler.nomadcoders.workers.dev"; //api base url 절대상수로 지정
-  final String today = "today";
+  static const String today = "today";
   //getTodaysToons 리턴타입 변경
-  Future<List<WebtoonModel>> getTodaysToons() async {
+  static Future<List<WebtoonModel>> getTodaysToons() async {
+    //static으로 초기화
     List<WebtoonModel> webtoonInstances = [];
     //async 비동기
     final url = Uri.parse('$baseUrl/$today');
